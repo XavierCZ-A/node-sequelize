@@ -1,11 +1,11 @@
 import { Router } from "express";
-import { postInvestment } from "../controllers/investment.controller.js";
+import { getOpportunities, postInvestment } from "../controllers/investment.controller.js";
 
 const router = Router();
 
 router.post("/", postInvestment);
 
-router.get("/")
+router.get("/", getOpportunities)
 
 
 

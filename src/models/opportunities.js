@@ -1,5 +1,4 @@
 import { DataTypes } from "sequelize";
-// import { investors } from "./investors.js";
 import { investment } from "./investments.js";
 import { sequelize } from "../db/databases.js";
 
@@ -22,6 +21,6 @@ opportunities.hasMany(investment,{
 
 investment.belongsTo(opportunities,{
     foreignKey: 'opportunityId',
-    targetId: 'id',
+    targetKey: 'id',
 })
 

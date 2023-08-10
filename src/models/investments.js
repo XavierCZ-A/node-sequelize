@@ -9,6 +9,6 @@ export const investment = sequelize.define("investment",{
     },
     investor_name: DataTypes.TEXT,
     amount: DataTypes.INTEGER,
-    opporunity_name: DataTypes.TEXT,
+    opportunity_name: DataTypes.TEXT,
     date_invested: DataTypes.DATEONLY
 })
