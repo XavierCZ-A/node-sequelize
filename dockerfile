@@ -5,7 +5,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
-# Copiar archivos del proyecto al contenedor
 COPY . .
 
 
