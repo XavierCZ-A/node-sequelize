@@ -11,4 +11,4 @@ export const investors = sequelize.define("investors", {
     name: DataTypes.TEXT,
     balance: DataTypes.INTEGER,
 
-});
+},{timestamps: false});

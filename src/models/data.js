@@ -1,9 +1,7 @@
-
-
 export const opportunitiesData = [
-    { name: "Bienes Raíces", investmentAmount: 100000 },
-    { name: "Tecnología", investmentAmount: 200000 },
-    { name: "Manufactura", investmentAmount: 140000 },
+    { name: "Bienes Raíces", investment_amount: 100000 },
+    { name: "Tecnología", investment_amount: 200000 },
+    { name: "Manufactura", investment_amount: 140000 },
 ];
 
 export const investorsData = [

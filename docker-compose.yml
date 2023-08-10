@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  postgresdb:
+    image: postgres
+    container_name: my-postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./src/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+
+
+      
+  app:
+    build: .
+    container_name: my-app
+    depends_on:
+      - postgresdb
+    ports:
+      - "3000:3000"

@@ -11,4 +11,4 @@ export const investment = sequelize.define("investment",{
     amount: DataTypes.INTEGER,
     opportunity_name: DataTypes.TEXT,
     date_invested: DataTypes.DATEONLY
-})
+},{timestamps: false})

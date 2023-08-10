@@ -15,8 +15,8 @@ export const postInvestment = async (req, res) => {
             return res.status(400).json({message: "El monto de inversion es mayor al saldo del inversionista"})
         }
 
-        if (amount > opportunity.investmentAmount) {
-            return res.status(400).json({message: "El monto de inversion es mayor a la oportunidad"})
+        if (amount > opportunity.investment_amount) {
+            return res.status(400).json({message: "El monto de inversion es mayor al monto de la oportunidad"})
         }
 
         const transaction = await sequelize.transaction();
@@ -25,7 +25,7 @@ export const postInvestment = async (req, res) => {
             investor_name: investor.name,
             amount: amount,
             opportunity_name: opportunity.name,
-            opportunityId: opportunityId,
+            opportunity_id: opportunityId,
             date_invested: new Date(),
         }, {transaction});
 
@@ -34,14 +34,14 @@ export const postInvestment = async (req, res) => {
         res.json(newInvestment);
 
     } catch (error) {
-        res.status(500).json({message: "Error "});
+        res.status(500).json({message: "Error del servidor"});
      }
 }
 
 export const getOpportunities = async (req, res) => {
     try {
         const result = await opportunities.findAll({
-            attributes: ["name", "investmentAmount"],
+            attributes: ["name", "investment_amount"],
             include: [{
               model: investment,
               attributes: ["investor_name", "amount", "opportunity_name"],
@@ -50,6 +50,6 @@ export const getOpportunities = async (req, res) => {
           });
         res.json(result);
     } catch (error) {
-        res.status(500).json({message: "Error "});
+        res.status(500).json({message: "Error del servidor"});
     }
  };

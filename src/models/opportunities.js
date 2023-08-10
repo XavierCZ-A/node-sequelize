@@ -9,18 +9,18 @@ export const opportunities = sequelize.define("opportunities", {
         autoIncrement: true
     },
     name: DataTypes.TEXT,
-    investmentAmount: DataTypes.INTEGER,
+    investment_amount: DataTypes.INTEGER,
     
-});
+},{timestamps: false});
 
 opportunities.hasMany(investment,{
-    foreignKey: 'opportunityId',
+    foreignKey: 'opportunity_id',
     sourceKey: 'id',
 })
 
 
 investment.belongsTo(opportunities,{
-    foreignKey: 'opportunityId',
+    foreignKey: 'opportunity_id',
     targetKey: 'id',
 })
 
